@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فريق الكابتن محمد سامي - نموذج اللياقة البدنية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --warning: #f39c12;
+            --info: #1abc9c;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--dark), var(--primary));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-body {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: var(--dark);
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-left: 10px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input, .checkbox-option input {
+            width: auto;
+            margin-left: 8px;
+        }
+        
+        .file-upload {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary);
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+        
+        .file-upload i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn i {
+            margin-left: 8px;
+        }
+        
+        .btn-submit {
+            background-color: var(--secondary);
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+        }
+        
+        .btn-submit:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-export {
+            background-color: var(--warning);
+            margin-left: 10px;
+        }
+        
+        .btn-export:hover {
+            background-color: #e67e22;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light);
+            color: var(--dark);
+            font-size: 14px;
+        }
+        
+        .progress-container {
+            margin-top: 30px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            height: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            width: 0;
+            transition: width 0.5s ease;
+        }
+        
+        .result-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .result-title {
+            color: var(--dark);
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .result-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .logo {
+                position: static;
+                margin: 0 auto 15px;
+            }
+            
+            .form-body {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">م.س</div>
+            <h1>فريق الكابتن محمد سامي</h1>
+            <p>نموذج تقييم اللياقة البدنية الشامل</p>
+        </div>
+        
+        <div class="form-body">
+            <form id="fitnessForm">
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-user"></i>
+                        المعلومات الشخصية
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">الاسم بالكامل</label>
+                        <input type="text" id="name" name="name" required placeholder="أدخل اسمك بالكامل">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group" style="flex: 1; margin-left: 15px;">
+                            <label for="age">العمر</label>
+                            <input type="number" id="age" name="age" required min="12" max="80" placeholder="أدخل عمرك">
+                        </div>
+                        
+                        <div class="form-group" style="flex: 1;">
+                            <label for="weight">الوزن (كجم)</label>
+                            <input type="number" id="weight" name="weight" required min="30" max="200" step="0.1" placeholder="أدخل وزنك">
+                        </div>
+                        
+                        <div class="form-group" style="flex: 1; margin-right: 15px;">
+                            <label for="height">الطول (سم)</label>
+                            <input type="number" id="height" name="height" required min="120" max="220" placeholder="أدخل طولك">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-heartbeat"></i>
+                        الحالة الصحية
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل يوجد مشاكل في المفاصل؟</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="joint_problems" value="yes" onchange="toggleProblemDetails('jointDetails')"> نعم
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="joint_problems" value="no" checked onchange="toggleProblemDetails('jointDetails')"> لا
+                            </label>
+                        </div>
+                        <div id="jointDetails" style="display: none; margin-top: 10px;">
+                            <label for="joint_problems_details">إذا نعم، يرجى توضيح المشكلة</label>
+                            <textarea id="joint_problems_details" name="joint_problems_details" rows="3" placeholder="وصف المشكلة في المفاصل"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل يوجد مشاكل في العضلات؟</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="muscle_problems" value="yes" onchange="toggleProblemDetails('muscleDetails')"> نعم
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="muscle_problems" value="no" checked onchange="toggleProblemDetails('muscleDetails')"> لا
+                            </label>
+                        </div>
+                        <div id="muscleDetails" style="display: none; margin-top: 10px;">
+                            <label for="muscle_problems_details">إذا نعم، يرجى توضيح المشكلة</label>
+                            <textarea id="muscle_problems_details" name="muscle_problems_details" rows="3" placeholder="وصف المشكلة في العضلات"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل هناك أمراض عضوية؟</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="organic_diseases" value="yes" onchange="toggleProblemDetails('diseaseDetails')"> نعم
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="organic_diseases" value="no" checked onchange="toggleProblemDetails('diseaseDetails')"> لا
+                            </label>
+                        </div>
+                        <div id="diseaseDetails" style="display: none; margin-top: 10px;">
+                            <label for="organic_diseases_details">إذا نعم، يرجى توضيح المرض</label>
+                            <textarea id="organic_diseases_details" name="organic_diseases_details" rows="3" placeholder="وصف الأمراض العضوية"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exercise_goal">الهدف من التمرين</label>
+                        <select id="exercise_goal" name="exercise_goal" required>
+                            <option value="" disabled selected>اختر هدفك من التمرين</option>
+                            <option value="weight_loss">خسارة الوزن</option>
+                            <option value="muscle_gain">بناء العضلات</option>
+                            <option value="fitness">لياقة بدنية عامة</option>
+                            <option value="rehabilitation">إعادة تأهيل</option>
+                            <option value="sport_performance">تحسين الأداء الرياضي</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-file-medical"></i>
+                        المستندات والصور
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>صور التحاليل الطبية (إن وجدت)</label>
+                        <div class="file-upload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>اسحب وأسقط الملفات هنا أو انقر للاختيار</p>
+                            <input type="file" id="medical_tests" name="medical_tests[]" multiple accept="image/*,.pdf">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>صور جسم المتدرب (8 صور من زوايا مختلفة)</label>
+                        <div class="file-upload">
+                            <i class="fas fa-camera"></i>
+                            <p>اسحب وأسقط 8 صور هنا أو انقر للاختيار</p>
+                            <input type="file" id="body_photos" name="body_photos[]" multiple accept="image/*" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="formProgress"></div>
+                </div>
+                
+                <button type="button" class="btn btn-submit" onclick="calculateFitness()">
+                    <i class="fas fa-calculator"></i> احسب مستوى اللياقة
+                </button>
+                
+                <div class="result-container" id="resultContainer">
+                    <div class="result-title">
+                        <i class="fas fa-chart-line"></i>
+                        نتائج التقييم:
+                    </div>
+                    <p>مستوى المجهود البدني الموصى به: <span class="result-value" id="fitnessLevel">--</span></p>
+                    <p>مؤشر كتلة الجسم (BMI): <span class="result-value" id="bmiResult">--</span></p>
+                    <p>التوصيات: <span id="recommendations">--</span></p>
+                </div>
+                
+                <div style="display: flex; justify-content: center; margin-top: 20px;">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-save"></i> حفظ البيانات
+                    </button>
+                    <button type="button" class="btn btn-export" onclick="exportToExcel()">
+                        <i class="fas fa-file-excel"></i> تصدير لـ Excel
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="footer">
+            جميع الحقوق محفوظة © 2023 فريق الكابتن محمد سامي
+        </div>
+    </div>
+    
+    <script>
+        function toggleProblemDetails(elementId) {
+            const element = document.getElementById(elementId);
+            const radioValue = document.querySelector(`input[name="${elementId.replace('Details', '_problems')}"]:checked`).value;
+            
+            if (radioValue === 'yes') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+            
+            updateProgress();
+        }
+        
+        function updateProgress() {
+            const form = document.getElementById('fitnessForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            const requiredInputs = form.querySelectorAll('[required]');
+            let filledCount = 0;
+            
+            requiredInputs.forEach(input => {
+                if (input.type === 'radio' || input.type === 'checkbox') {
+                    const name = input.name;
+                    if (form.querySelector(`input[name="${name}"]:checked`)) {
+                        filledCount++;
+                    }
+                } else if (input.type === 'file') {
+                    if (input.files && input.files.length > 0) {
+                        filledCount++;
+                    }
+                } else {
+                    if (input.value.trim() !== '') {
+                        filledCount++;
+                    }
+                }
+            });
+            
+            const progress = (filledCount / requiredInputs.length) * 100;
+            document.getElementById('formProgress').style.width = `${progress}%`;
+        }
+        
+        function calculateFitness() {
+            // الحصول على القيم من النموذج
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseInt(document.getElementById('height').value) / 100; // تحويل إلى متر
+            
+            // حساب مؤشر كتلة الجسم (BMI)
+            const bmi = weight / (height * height);
+            let bmiCategory = '';
+            
+            if (bmi < 18.5) {
+                bmiCategory = 'نقص في الوزن';
+            } else if (bmi >= 18.5 && bmi < 25) {
+                bmiCategory = 'وزن طبيعي';
+            } else if (bmi >= 25 && bmi < 30) {
+                bmiCategory = 'زيادة في الوزن';
+            } else {
+                bmiCategory = 'سمنة';
+            }
+            
+            // حساب مستوى اللياقة بناء على عدة عوامل
+            let fitnessScore = 0;
+            
+            // العمر
+            if (age < 20) fitnessScore += 30;
+            else if (age >= 20 && age < 40) fitnessScore += 25;
+            else if (age >= 40 && age < 60) fitnessScore += 20;
+            else fitnessScore += 15;
+            
+            // الوزن
+            if (bmi >= 18.5 && bmi < 25) fitnessScore += 30;
+            else if (bmi >= 25 && bmi < 30) fitnessScore += 20;
+            else if (bmi < 18.5) fitnessScore += 15;
+            else fitnessScore += 10;
+            
+            // المشاكل الصحية
+            const jointProblems = document.querySelector('input[name="joint_problems"]:checked').value;
+            const muscleProblems = document.querySelector('input[name="muscle_problems"]:checked').value;
+            const organicDiseases = document.querySelector('input[name="organic_diseases"]:checked').value;
+            
+            if (jointProblems === 'no' && muscleProblems === 'no' && organicDiseases === 'no') {
+                fitnessScore += 40;
+            } else if ((jointProblems === 'yes' || muscleProblems === 'yes') && organicDiseases === 'no') {
+                fitnessScore += 25;
+            } else {
+                fitnessScore += 10;
+            }
+            
+            // تحديد مستوى اللياقة
+            let fitnessLevel = '';
+            let recommendations = '';
+            
+            if (fitnessScore >= 85) {
+                fitnessLevel = 'متقدم';
+                recommendations = 'يمكنك ممارسة تمارين متقدمة بكثافة عالية مع تمارين القوة والمقاومة.';
+            } else if (fitnessScore >= 65) {
+                fitnessLevel = 'متوسط';
+                recommendations = 'يمكنك ممارسة تمارين متوسطة الكثافة مع بعض تمارين المقاومة الخفيفة.';
+            } else if (fitnessScore >= 45) {
+                fitnessLevel = 'مبتدئ';
+                recommendations = 'يجب البدء بتمارين خفيفة مثل المشي والتمارين الهوائية الخفيفة مع تجنب التمارين الشاقة.';
+            } else {
+                fitnessLevel = 'تحت إشراف طبي';
+                recommendations = 'يجب استشارة طبيب أو أخصائي علاج طبيعي قبل البدء بأي برنامج تدريبي.';
+            }
+            
+            // عرض النتائج
+            document.getElementById('fitnessLevel').textContent = fitnessLevel;
+            document.getElementById('bmiResult').textContent = bmi.toFixed(1) + ' (' + bmiCategory + ')';
+            document.getElementById('recommendations').textContent = recommendations;
+            document.getElementById('resultContainer').style.display = 'block';
+            
+            // التمرير إلى النتائج
+            document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function exportToExcel() {
+            // هنا يمكنك إضافة كود لتصدير البيانات إلى Excel
+            alert('سيتم تصدير البيانات إلى ملف Excel. هذه ميزة تحتاج إلى تكامل مع مكتبة مثل SheetJS.');
+        }
+        
+        // تحديث شريط التقدم عند تغيير المدخلات
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('input', updateProgress);
+            element.addEventListener('change', updateProgress);
+        });
+        
+        // تحديث أولي لشريط التقدم
+        updateProgress();
+    </script>
+</body>
+</html>
